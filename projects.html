@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="projects">
+    <!-- Live Background -->
+    <div id="background"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Projects Content -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project" onclick="toggleProjectDetails('project1')">
+            <h3>Feedback analysis for CRM</h3>
+            <div id="project1" class="project-details">
+                <p>Real-Time Speech-to-Text CRM System is a cutting-edge Customer Relationship Management application designed to enhance customer interactions and improve feedback analysis. The system integrates real-time speech-to-text technology to convert spoken customer feedback into actionable insights, allowing businesses to respond promptly and effectively. By leveraging advanced natural language processing and machine learning algorithms, the CRM system provides detailed analysis of customer sentiments and trends, enabling companies to optimize their customer service and engagement strategies.</p>
+            </div>
+        </div>
+        <div class="project" onclick="toggleProjectDetails('project2')">
+            <h3>Psychosense V2.0</h3>
+            <div id="project2" class="project-details">
+                <p>PsychoSense V2.0 is an advanced application designed for analyzing and visualizing sentiment and emotional states from various data sources, including text journal entries, audio logs, and video recordings. The application leverages natural language processing, machine learning, computer vision, and speech recognition technologies to provide insights into users' mental and emotional health. It offers a comprehensive platform for users to track their emotional well-being over time and visualize their data in meaningful ways..</p>
+            </div>
+        </div>
+        <!-- Add more projects as needed -->
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

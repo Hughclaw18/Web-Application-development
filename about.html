@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - About Me</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="about">
+    <!-- Live Background -->
+    <div id="background"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Me Content -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="academics">
+            <h3 onclick="toggleSection('academics-content')">Academic Scores</h3>
+            <div id="academics-content" class="hidden-content">
+                <ul>
+                    <li>10th Standard: 83.2</li>
+                    <li>12th Standard: 80.08</li>
+                </ul>
+                <ul>
+                    <li>1st Semester: 8</li>
+                    <li>2nd Semester: 8.01</li>
+                    <li>3rd Semester: 7.875</li>
+                    <li>4th Semester: 8.02</li>
+                </ul>
+            </div>
+        </div>
+        <div class="certifications">
+            <h3 onclick="toggleSection('certifications-content')">Certifications</h3>
+            <div id="certifications-content" class="hidden-content">
+                <ul>
+                    <li>MongoDB</li>
+                    <li>Data Visualization using Tableau</li>
+                    <li>R-studio</li>
+                    <li>IT primer</li>			
+               </ul>
+            </div>
+        </div>
+        <div class="resume">
+            <button onclick="showResumeForm()">Download CV</button>
+        </div>
+        <div id="resume-form" class="hidden">
+            <form id="resumeForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <button type="submit">Download</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
