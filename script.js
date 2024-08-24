@@ -37,8 +37,8 @@ document.getElementById('resumeForm')?.addEventListener('submit', function(event
     if (name && email) {
         // Assuming your resume file is in the same directory and named 'resume.pdf'
         var link = document.createElement('a');
-        link.href = 'resume.pdf';
-        link.download = 'resume.pdf';
+        link.href = 'PrajeetRagavRResume.pdf';
+        link.download = 'PrajeetRagavRResume.pdf';
         link.click();
 
         // Optionally, hide the form again after download
