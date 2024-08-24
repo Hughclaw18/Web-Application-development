@@ -251,7 +251,7 @@ nav ul li a:hover {
     max-width: 900px;
     width: 90%;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    color: #FF0000; 
+    color: #FF0000; /* Ensure text color within the container is red */
 }
 
 .project {
@@ -262,23 +262,19 @@ nav ul li a:hover {
     background-color: #fff;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    color: #FF0000; /* Set text color inside each project to red */
 }
 
 .project h3 {
     cursor: pointer;
     font-size: 24px;
-    color: #ff9e00;
+    color: #FF0000; /* Set heading color to red */
     margin-bottom: 10px;
     transition: color 0.3s ease;
 }
 
 .project h3:hover {
-    color: #ff5733;
+    color: #ff5733; /* Optional: Change hover color to a different shade */
 }
 
 .project-details {
@@ -287,6 +283,7 @@ nav ul li a:hover {
     animation: fadeInDetails 1s ease-in-out;
     text-align: left;
     font-size: 16px;
+    color: #FF0000; /* Set details text color to red */
 }
 
 @keyframes fadeInDetails {
