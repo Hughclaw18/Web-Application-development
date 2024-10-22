@@ -1,58 +1,63 @@
-// Function to toggle the display of content with animation
-function toggleContent(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.classList.toggle('show');
-    }
-}
-
 // Function to toggle the display of project details
 function toggleProjectDetails(id) {
     const element = document.getElementById(id);
-    if (element) {
-        element.style.display = element.style.display === "none" || element.style.display === "" ? "block" : "none";
-        element.classList.toggle('fadeInDetails', element.style.display === "block");
+    if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
     }
 }
 
 // Function to show the resume download form
 function showResumeForm() {
     const form = document.getElementById('resume-form');
-    if (form) {
-        form.style.display = 'block';
-        form.classList.add('fadeInForm');
-    }
+    form.style.display = 'block';
+    form.classList.add('fadeInForm');
 }
 
 // Event listener for the resume form submission
-document.getElementById('resume-form')?.addEventListener('submit', function(event) {
+document.getElementById('resumeForm')?.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from submitting the traditional way
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
 
     if (name && email) {
+        // Assuming your resume file is in the same directory and named 'resume.pdf'
         const link = document.createElement('a');
-        link.href = 'PrajeetRagavRResume.pdf';
-        link.download = 'PrajeetRagavRResume.pdf';
-        document.body.appendChild(link);
+        link.href = 'resume.pdf';
+        link.download = 'resume.pdf';
         link.click();
-        document.body.removeChild(link);
 
-        document.getElementById('resume-form').style.display = 'none';
+        // Optionally, hide the form again after download
+        const form = document.getElementById('resume-form');
+        form.style.display = 'none';
     } else {
         alert('Please fill in both your name and email address to download the resume.');
     }
 });
 
-// Adding event listeners for project boxes using a loop (assuming IDs follow a pattern)
-for (let i = 1; i <= 3; i++) {
-    document.getElementById(`project${i}`)?.addEventListener('click', function() {
-        toggleProjectDetails(`details${i}`);
+// Add event listeners to dynamically handle multiple project boxes
+document.querySelectorAll('.project').forEach(function(project) {
+    project.addEventListener('click', function() {
+        const id = this.querySelector('.project-details').id;
+        toggleProjectDetails(id);
     });
+});
+
+// Function to toggle the display of content with animation (for Academics and Certifications)
+function toggleContent(id) {
+    const element = document.getElementById(id);
+    if (element.classList.contains('show')) {
+        element.classList.remove('show');
+        element.style.maxHeight = null; // Collapse section
+    } else {
+        element.classList.add('show');
+        element.style.maxHeight = element.scrollHeight + "px"; // Expand section
+    }
 }
 
-// Event listeners for the Academics and Certifications sections
+// Event listeners for the Academics and Certifications sections (About Me page)
 document.querySelector('.academics h3')?.addEventListener('click', function() {
     toggleContent('academics-content');
 });
