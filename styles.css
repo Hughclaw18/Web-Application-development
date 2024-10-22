@@ -4,19 +4,21 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background: #f7f7f7;
+    background: #B2BEB5;
+    background-image: url('about.jpg');
 }
 
 /* Navigation Bar */
 nav {
-    background-color: rgba(255, 255, 255, 0.8); /* Light background */
+    background-color: rgba(255, 255, 255, 0.8); 
     padding: 20px;
     text-align: right;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
@@ -34,70 +36,135 @@ nav ul li a {
     color: #B8860B;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
     text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #ff5733;
-    text-shadow: 0px 0px 5px rgba(255, 87, 51, 0.7);
+    transform: scale(1.1);
 }
 
-/* About Page */
-#about {
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: 100px auto; /* Adjusted for fixed navigation */
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+/* Section Styles (Common across all pages) */
+section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 120px auto; /* Adjust for fixed navigation */
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-#about h2 {
-    font-size: 36px;
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: #ff9e00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff5733;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+/* Home Page */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('home.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-section {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     margin-bottom: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.hidden-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
+.profile-section h1 {
+    font-size: 36px;
+    margin: 10px 0;
+    color: #ff9e00;
 }
 
-.show {
-    max-height: 1000px;
-    transition: max-height 0.5s ease-in;
+.profile-section p {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #555;
 }
 
-/* Academics Section */
+.profile-section button {
+    background-color: #ff9e00;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-section button:hover {
+    background-color: #ff5733;
+}
+
+/* About Me Page */
 .academics, .certifications {
     padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: #fff;
+    background: #ffffff;
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    cursor: pointer;
+    margin: 20px 0;
+}
+.hidden-content {
+    display: none; /* Initially hidden */
 }
 
 .academics h3, .certifications h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #ff9e00;
     cursor: pointer;
+    color: #ff9e00; /* Adjust color as needed */
     transition: color 0.3s ease;
 }
 
 .academics h3:hover, .certifications h3:hover {
-    color: #ff5733;
+    color: #ff5733; /* Change color on hover */
 }
 
 .academics ul, .certifications ul {
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .academics ul li, .certifications ul li {
@@ -105,22 +172,7 @@ nav ul li a:hover {
     margin: 5px 0;
 }
 
-/* Resume Download Section */
-.resume button {
-    background-color: #ff9e00;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.resume button:hover {
-    background-color: #ff5733;
-}
-
+/* Resume Form */
 #resume-form {
     margin-top: 20px;
     display: none; /* Initially hidden */
@@ -147,192 +199,53 @@ nav ul li a:hover {
 #resume-form button:hover {
     background-color: #ff5733;
 }
-
-/* Container for other sections like home and projects */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    background-image: url('home.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.profile-section {
-    text-align: center;
-    position: relative;
-    max-width: 600px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.profile-section img {
-    width: 300px;
-    height: auto;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    z-index: 2;
-    position: relative;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.profile-section h1 {
-    font-size: 48px;
-    margin: 10px 0;
-    z-index: 2;
-    position: relative;
-}
-
-.profile-section h1 span {
-    color: #ff9e00;
-}
-
-.profile-section p {
-    font-size: 18px;
-    margin: 20px 0;
-    color: #777;
-    z-index: 2;
-    position: relative;
-}
-
-.profile-section button {
-    background-color: #ff9e00;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    z-index: 2;
-    position: relative;
-}
-
-.profile-section button:hover {
-    background-color: #ff5733;
-}
-
-/* Abstract Shape Background */
-.profile-section::before {
-    content: '';
-    background-color: #ffe5b4;
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-10deg);
-    border-radius: 50%;
-    z-index: 1;
-}
-
 /* Projects Page */
 #projects {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 100px 0;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
     background-image: url('projects.jpg');
     background-size: cover;
     background-position: center;
-    color: #FF0000; /* This sets the default text color to red */
-    text-align: center;
-}
+    color: #fff;
+    justify-content: center;
 
-.projects-container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 15px;
-    max-width: 900px;
-    width: 90%;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    color: #FF0000; /* Ensure text color within the container is red */
 }
 
 .project {
-    margin-bottom: 20px;
+    width: 90%;
+    max-width: 800px;
     padding: 20px;
-    border: 1px solid #ddd;
+    background: #fff;
     border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #FF0000; /* Set text color inside each project to red */
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .project h3 {
-    cursor: pointer;
     font-size: 24px;
-    color: #FF0000; /* Set heading color to red */
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
+    color: #ff9e00;
 }
 
 .project h3:hover {
-    color: #ff5733; /* Optional: Change hover color to a different shade */
+    color: #ff5733;
 }
 
 .project-details {
     display: none;
     margin-top: 10px;
-    animation: fadeInDetails 1s ease-in-out;
-    text-align: left;
     font-size: 16px;
-    color: #FF0000; /* Set details text color to red */
+    color: #555;
 }
 
-@keyframes fadeInDetails {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-
-footer a {
-    color: #ff9e00;
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #ff5733;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .container {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-    }
-
-    .profile-section {
-        width: 100%;
-        padding: 10px;
-        max-width: 100%;
-    }
-
-    #about, .academics, .certifications, .projects-container {
-        padding: 20px;
-        width: 100%;
-        margin: 20px 0;
-    }
+/* Toggle visible details */
+.show {
+    display: block;
 }
